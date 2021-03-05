@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+"name": "HackerU Attendance Script",
+"description": "Helps TA's take attendance for HackerU classes.",
+"version": "1.0",
+"content_scripts":[
+    {
+      "matches":["https://*.instructure.com/*","https://*.zoom.us/*","file://*"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+"browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+"background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+"permissions": [
+    "activeTab",
+    "tabs",
+    "https://*.instructure.com/*",
+    "https://*.zoom.us/*",
+    "file://*"
+
+  ]
+}

@@ -1,0 +1,51 @@
+[X] Check to make sure that we are on the right page: Canvas or Zoom --> Manifest Page
+
+
+[] Add more buttons to clear the global variable, reset taking attendence, determine who left early, ??? 
+
+	[X] Unmark All:
+		document.getElementById("unmark-all").click();
+
+[] Add error message box and error handling
+
+
+[] add comments
+
+
+[] compare who left early and who is still here
+	have an array with timestamps that take snapshots of when you took attendance last. So you can check who left early and whatnot
+
+
+[] Check to see if the participant list is open, if not, open it and take attendence and close it
+	
+	If both of these are NULL:
+		//Popout window
+		document.getElementById("participant-window");
+		//Side section
+		document.getElementById("participantSectionMenu");
+
+
+	Then we want to click to open:
+	First well try the part button
+		//Bottom button
+		document.getElementsByClassName("footer-button__button ax-outline")[0].click();
+		document.getElementsByClassName("footer-button__button ax-outline")[0].click();
+		//to click
+			
+	Otherwise we try:
+		//Collapsed button
+		document.getElementsByClassName("more-button__pop-menu dropdown-menu")
+			//To click
+			document.getElementsByClassName("more-button__pop-menu dropdown-menu")[0].firstElementChild.firstElementChild.click()
+
+//start of check
+if (document.getElementById("participantSectionMenu") == null && document.getElementById("participant-window") == null) {
+    
+    console.log("not found")
+    
+    document.getElementsByClassName("footer-button__button ax-outline")[0].click();
+    
+    setTimeout(() => {
+        document.getElementsByClassName("footer-button__button ax-outline")[0].click();
+    }, 2000);
+};
