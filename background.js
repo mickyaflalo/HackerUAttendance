@@ -1,4 +1,4 @@
-//Storage of the participants
+//Storage of the participants - partListChekcer?
 let participants = "";
 
 // opens a communication port
