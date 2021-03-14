@@ -1,3 +1,4 @@
+//Storage of the participants
 let participants = "";
 
 // opens a communication port
