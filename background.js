@@ -1,4 +1,4 @@
-//Storage of the participants - partListChekcer?
+//Storage of the participants - partListChekcer? Meep???
 let participants = "";
 
 // opens a communication port
