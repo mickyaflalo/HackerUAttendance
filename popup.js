@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    //Method to recieve a message from the background.js
+    //Recieving the data back from background.js <-- content.js
     chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
             if (request.msg === "getParts") {
@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(request.data);
 
                 document.getElementById("parts").value = request.data;
+                document.getElementsByClassName("timestamp")[0].firstElementChild.innerText = Date(Date.now()).split(" ")[4].substring(0,5);
+
 
             }
         }
