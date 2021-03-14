@@ -10,7 +10,8 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
 
         port.postMessage({
             'from': 'tab',
-            'data': parts
+            'data': parts,
+            'time': Date(Date.now()).split(" ")[4]
 
         });
     

@@ -52,7 +52,7 @@ chrome.runtime.onConnect.addListener(function(port) {
         // if the message comes from the tab with the zoom and canvas page
         else if (o.from && o.from === 'tab') {
 
-            console.log(o.data);
+            console.log(o);
             participants = o.data;
 
             chrome.runtime.sendMessage({
