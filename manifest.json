@@ -23,7 +23,8 @@
     "tabs",
     "https://*.instructure.com/*",
     "https://*.zoom.us/*",
-    "file://*"
+    "file://*",
+    "storage"
 
   ]
 }

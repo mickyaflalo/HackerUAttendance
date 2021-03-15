@@ -37,10 +37,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(request.data);
 
                 document.getElementById("parts").value = request.data;
-                document.getElementsByClassName("timestamp")[0].firstElementChild.innerText = Date(Date.now()).split(" ")[4].substring(0,5);
-
-
+                addTimestamp(Date(Date.now()).split(" ")[4].substring(0,5));
             }
         }
     );
+
+    function addTimestamp(timeNow) {
+        
+        let newTimestamp = document.createElement("div");
+        newTimestamp.className = "btn btn-info";
+        let time = document.createTextNode(timeNow);
+        
+        if (document.getElementById("timestamp").children.length>5) {
+            document.getElementById("timestamp").removeChild(document.getElementById("timestamp").lastChild)
+        }
+
+        newTimestamp.appendChild(time);
+        document.getElementById("timestamp").appendChild(newTimestamp);
+
+        //------------------------------------------------------------------
+        let key = Date(Date.now());
+        let value = Date(Date.now()).split(" ")[4].substring(0,5);
+        addToStorage(key, value);
+
+        
+    }
+
+    function addToStorage(time,value) {
+        chrome.storage.sync.set({time: value}, function() {
+          console.log('Value is set to ' + "key: " + key + "\nValue: "+value);
+        });
+    }
+
 });
